@@ -8,15 +8,14 @@ body{
     background-repeat:no-repeat;
     background-attachment: fixed;
     background-position: center;
-    color: #00DABF;  
+    color: #fff;  
 }
 
 #footer{
-    
     position:fixed;
     left:0px;
     bottom:50px;
-    height:150px;
+    height:100px;
     width:100%;
     background:#1E2533;
 }
