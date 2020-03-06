@@ -8,13 +8,15 @@
   </head>
   <body>
     <h1>Servicios</h1>
-    <form action="javascript:saludaHttp();">
-      <p><input type="text" id="nom" placeholder="Nombre"></p>
-      <p><input type="text" id="pasatiempo" placeholder="Pasatiempo"></p>
+    <form action="javascript:mensajeHttp();">
+      <p>Nombre</p>
+      <p><input type="text" id="nom" placeholder="Nombre" autocomplete="off"></p>
+      <p>Pasatiempo</p>
+      <p><input type="text" id="pasatiempo" placeholder="Pasatiempo" autocomplete="off"></p>
       <p>Edad</p>
-      <p><input type="number" id="edad" value="18"></p>
+      <p><input type="number" id="edad" value="18" autocomplete="off"></p>
       <p>
-        <button type="submit">Saludar</button>
+        <button type="submit">Mensaje</button>
       </p>
       <footer>Copyright &copy; 2020 Gilberto Pacheco Gallegos.</footer>
     </form>
@@ -29,7 +31,7 @@
        * función termina correctamente o con error en algún momento futuro.
        * @returns {Promise} para indicar cuando termina correctamente o con
        *  error. */
-      async function saludaHttp() {
+      async function mensajeHttp() {
         try {
           /** La función fetch envía los datos al servidor. El texto que recibe
            * como parámetro es la url que se invoca. El signo de interrogación
@@ -46,13 +48,13 @@
            * de la operación y toma la respuesta devuelta por el servidor.
            * @type {Response} */
           const respuestaHttp =
-            await fetch("saludo?nombre="
+            await fetch("mensaje?nombre="
               // @ts-ignore
               + encodeURIComponent(nom.value.trim())
               // @ts-ignore
               + "&pasatiempo=" + encodeURIComponent(pasatiempo.value.trim())
               // @ts-ignore
-              + "&edad=" + encodeURIComponent(Integer.parseInt(pasatiempo.value)));
+              + "&edad=" + encodeURIComponent((edad.value)));
           /* La property ok de la respuesta vale true si la conexión terminó
            * con éxito. */
           if (respuestaHttp.ok) {
